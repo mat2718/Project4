@@ -6,12 +6,12 @@ import GoalInput from "./src/components/goalInput";
 
 export default function App() {
   // set my states
-  const [courseGoals, setCourseGoals] = useState([]);
+  const [courseGoals, setCourseGoals]: any = useState([]);
   const [isAddMode, setIsAddMode] = useState(false);
 
   // called onpress and grabs collected text and adds it to an array
   const addGoalHandler = (goalTitle: any) => {
-    setCourseGoals((currentGoals) => [
+    setCourseGoals((currentGoals: any) => [
       ...currentGoals,
       { id: Math.random().toString(), value: goalTitle },
     ]);
@@ -20,8 +20,8 @@ export default function App() {
 
   // onpress of the goalitem  it deletes the item
   const removeGoalHandler = (goalId: any) => {
-    setCourseGoals((currentGoals) => {
-      return currentGoals.filter((goal) => goal.id !== goalId);
+    setCourseGoals((currentGoals: any) => {
+      return currentGoals.filter((goal: any) => goal.id !== goalId);
     });
   };
 
