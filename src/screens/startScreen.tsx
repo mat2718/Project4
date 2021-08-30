@@ -10,13 +10,12 @@ import {
   Alert,
 } from "react-native";
 import Card from "../components/card";
-import FipsFlatList from "../components/fipsFlatList";
 import Header from "../components/header";
 import Input from "../components/input";
 import Color from "../constants/colors";
 import NumberContainer from "../components/numberContainer";
 
-const ViewFIPs = (props: any) => {
+const StartScreen = (props: any) => {
   const [enteredValue, setEnteredValue] = useState("");
   const [confirmed, setConfirmed] = useState(false);
   const [selectedNumber, setSelectedNumber] = useState("");
@@ -51,7 +50,7 @@ const ViewFIPs = (props: any) => {
       <Card style={styles.summaryContainer}>
         <Text>You Selected</Text>
         <NumberContainer>{selectedNumber}</NumberContainer>
-        <Button title="Start Game!" />
+        <Button title="Start Game!" onPress={() => onStartGame(selectedNumber)}/>
       </Card>
     );
   }
@@ -62,11 +61,10 @@ const ViewFIPs = (props: any) => {
         Keyboard.dismiss();
       }}
     >
-      <View style={styles.header}>
-        <Header title="Disease Tracking System" />
         <View style={styles.screen}>
+          <Text style={{fontSize: 16, fontWeight: 'bold'}}>Start a New Game</Text>
           <Card style={styles.inputContainer}>
-            <Text>Current Fips</Text>
+            <Text>Select a Number</Text>
             <Input
               style={styles.button}
               blurOnSubmit
@@ -96,7 +94,6 @@ const ViewFIPs = (props: any) => {
           </Card>
           {confirmedOutput}
         </View>
-      </View>
     </TouchableWithoutFeedback>
   );
 };
@@ -135,4 +132,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ViewFIPs;
+export default StartScreen;
